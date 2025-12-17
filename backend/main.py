@@ -26,7 +26,8 @@ app.include_router(admin.router)
 origins = [
     "http://localhost:5173", # Vite default
     "http://127.0.0.1:5173",
-    "https://ninadoinjashvili.github.io",
+    "https://Ninadnj.github.io",
+    "https://ninadnj.github.io",
 ]
 
 app.add_middleware(

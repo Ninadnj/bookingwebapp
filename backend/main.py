@@ -7,11 +7,17 @@ models.Base.metadata.create_all(bind=engine)
 
 from .routers import public, admin
 
+from .seed import seed_data
+
 app = FastAPI(
     title="Ethereal Booking API",
     description="Luxury appointment booking API",
     version="0.1.0"
 )
+
+@app.on_event("startup")
+async def startup_event():
+    seed_data()
 
 app.include_router(public.router)
 app.include_router(admin.router)

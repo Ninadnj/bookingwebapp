@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { API_BASE_URL } from '../config'
 import { ServiceCard } from '../components/ServiceCard'
 import { BookingModal } from '../components/BookingModal'
 
@@ -8,7 +9,7 @@ export const ClientHome = () => {
     const [selectedService, setSelectedService] = useState(null)
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/v1/services')
+        fetch(`${API_BASE_URL}/api/v1/services`)
             .then(res => res.json())
             .then(data => {
                 setServices(data)
@@ -29,7 +30,7 @@ export const ClientHome = () => {
     }
 
     const handleConfirmBooking = (bookingData) => {
-        fetch('http://127.0.0.1:8000/api/v1/bookings', {
+        fetch(`${API_BASE_URL}/api/v1/bookings`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(bookingData)

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { API_BASE_URL } from '../config'
 import { format, parseISO } from 'date-fns'
 import { Button } from '../components/ui/Button'
 
@@ -7,7 +8,7 @@ export const AdminDashboard = () => {
     const [loading, setLoading] = useState(true)
 
     const fetchBookings = () => {
-        fetch('http://127.0.0.1:8000/api/v1/admin/bookings')
+        fetch(`${API_BASE_URL}/api/v1/admin/bookings`)
             .then(res => res.json())
             .then(data => {
                 setBookings(data)
@@ -21,7 +22,7 @@ export const AdminDashboard = () => {
     }, [])
 
     const handleStatusUpdate = (id, status) => {
-        fetch(`http://127.0.0.1:8000/api/v1/admin/bookings/${id}/status?status=${status}`, {
+        fetch(`${API_BASE_URL}/api/v1/admin/bookings/${id}/status?status=${status}`, {
             method: 'PUT'
         })
             .then(res => {

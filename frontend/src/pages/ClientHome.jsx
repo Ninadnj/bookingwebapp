@@ -9,9 +9,14 @@ export const ClientHome = () => {
     const [selectedService, setSelectedService] = useState(null)
 
     useEffect(() => {
+        console.log("Fetching services from:", `${API_BASE_URL}/api/v1/services`);
         fetch(`${API_BASE_URL}/api/v1/services`)
-            .then(res => res.json())
+            .then(res => {
+                console.log("Response status:", res.status);
+                return res.json();
+            })
             .then(data => {
+                console.log("Data received:", data);
                 setServices(data)
                 setLoading(false)
             })

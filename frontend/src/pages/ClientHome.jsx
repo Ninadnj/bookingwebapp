@@ -93,7 +93,9 @@ export const ClientHome = () => {
 
             {/* Footer */}
             <footer className="text-center py-10 border-t border-ethereal-taupe/20">
-                <p className="font-serif italic text-ethereal-muted text-sm">&copy; 2024 Ethereal. Paris &bull; New York &bull; Tokyo</p>
+                <p className="font-serif italic text-ethereal-muted text-sm">
+                    Created by The DNJ&trade; with &#129293; & &#9749; &bull; Paris
+                </p>
             </footer>
         </div>
     )
